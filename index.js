@@ -54,7 +54,13 @@ app.post('/api/user', (req, res) => {
       if (reply == null) {
         // add new user
         var newUser = {'username':req.body.username, 'matches':[]};
-        redis.set(req.body.username, newUser);
+        redis.set(req.body.username, JSON.stringify(newUser), function(err, reply) {
+          if (!err) {
+            res.send("success");
+          } else {
+            res.status(500).send(err);
+          }
+        });
       } else {
         res.status(409).send("User already exists with that username");
       }
