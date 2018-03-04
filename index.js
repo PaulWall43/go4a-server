@@ -9,7 +9,14 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
-  .get('/matches', (req, res) => client.smembers('matches', function(err, reply) {
+  .get('/api/matches', (req, res) => client.smembers('matches', function(err, reply) {
+    if (!err) {
+      res.send(reply);
+    } else {
+      res.send("error: " + err);
+    }
+  }))
+  .get('/api/match', (req, res) => client.get(req.query.matchId, function(err, reply) {
     if (!err) {
       res.send(reply);
     } else {
