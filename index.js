@@ -15,7 +15,11 @@ app.get('/api/matches', (req, res) => redis.smembers('matches', function(err, re
 
 app.get('/api/match', (req, res) => redis.get(req.query.id, function(err, reply) {
   if (!err) {
-    res.send(reply);
+    if (reply == null) {
+      res.status(404).send("");
+    } else {
+      res.send(reply);
+    }
   } else {
     res.send('error: ' + err);
   }
@@ -27,6 +31,7 @@ app.put('/api/match', (req, res) => {
   var id = "1";
   redis.set(id, "{}", function(err, reply) {
     if (!err) {
+      redis.sadd('matches', id);
       res.send(id);
     } else {
       res.send("error: " + err);
