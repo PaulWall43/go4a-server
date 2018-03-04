@@ -9,7 +9,7 @@ app.get('/api/matches', (req, res) => redis.smembers('matches', function(err, re
   if (!err) {
     res.send(reply);
   } else {
-    res.send('error: ' + err);
+    res.status(500).send('error: ' + err);
   }
 }));
 
@@ -21,7 +21,7 @@ app.get('/api/match', (req, res) => redis.get(req.query.id, function(err, reply)
       res.send(reply);
     }
   } else {
-    res.send('error: ' + err);
+    res.status(500).send('error: ' + err);
   }
 }));
 
@@ -34,7 +34,7 @@ app.put('/api/match', (req, res) => {
       redis.sadd('matches', id);
       res.send(id);
     } else {
-      res.send("error: " + err);
+      res.status(500).send("error: " + err);
     }
   });
 });
