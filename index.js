@@ -2,25 +2,36 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
-var client = require('redis').createClient(process.env.REDIS_URL);
+var app = express();
+var redis = require('redis').createClient(process.env.REDIS_URL);
 
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
-  .get('/api/matches', (req, res) => client.smembers('matches', function(err, reply) {
+app.get('/api/matches', (req, res) => redis.smembers('matches', function(err, reply) {
+  if (!err) {
+    res.send(reply);
+  } else {
+    res.send('error: ' + err);
+  }
+}));
+
+app.get('/api/match', (req, res) => redis.get(req.query.id, function(err, reply) {
+  if (!err) {
+    res.send(reply);
+  } else {
+    res.send('error: ' + err);
+  }
+}));
+
+app.put('/api/match', (req, res) => {
+  // validate input
+  // generate id
+  var id = "1";
+  redis.set(id, "{}", function(err, reply) {
     if (!err) {
-      res.send(reply);
+      res.send(id);
     } else {
       res.send("error: " + err);
     }
-  }))
-  .get('/api/match', (req, res) => client.get(req.query.matchId, function(err, reply) {
-    if (!err) {
-      res.send(reply);
-    } else {
-      res.send("error: " + err);
-    }
-  }))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+  });
+});
+
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
