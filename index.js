@@ -46,7 +46,7 @@ app.get('/api/user', (req, res) => redis.get(req.query.username, function(err, r
 
 app.post('/api/user', (req, res) => {
   // validate input
-  if (!req.body.username) {
+  if (!req.body || !req.body.username) {
     res.status(400).send("No username specified");
     return;
   }
