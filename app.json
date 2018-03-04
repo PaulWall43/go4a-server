@@ -1,0 +1,8 @@
+{
+  "name": "go4a",
+  "description": "go4a server implementation",
+  "repository": "https://github.com/denthos/go4a-server",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "keywords": ["node", "express", "heroku", "go"],
+  "image": "heroku/nodejs"
+}
