@@ -3,6 +3,7 @@ const path = require('path')
 const PORT = process.env.PORT || 5000
 
 var app = express();
+app.use(express.json());
 var redis = require('redis').createClient(process.env.REDIS_URL);
 
 app.get('/api/match', (req, res) => redis.get(req.query.id, function(err, reply) {
