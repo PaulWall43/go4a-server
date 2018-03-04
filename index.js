@@ -31,7 +31,7 @@ app.post('/api/match', (req, res) => {
   });
 });
 
-app.get('/api/user', (req, res) => redis.get(req.query.id, function(err, reply) {
+app.get('/api/user', (req, res) => redis.get(req.query.username, function(err, reply) {
   if (!err) {
     if (reply == null) {
       res.status(404).send('');
