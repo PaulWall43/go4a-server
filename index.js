@@ -15,5 +15,5 @@ express()
     } else {
       res.send("error: " + err);
     }
-  })
+  }))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
