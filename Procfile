@@ -1,1 +1,1 @@
-web: go4a
+web: go4a-server

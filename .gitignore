@@ -1,2 +1,9 @@
 .env
 .docker_build/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
