@@ -1,1 +1,2 @@
-go4a server implementation
+# Go4A
+go implemented in go
