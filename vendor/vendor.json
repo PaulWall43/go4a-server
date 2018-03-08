@@ -1,5 +1,11 @@
 {
 	"comment": "",
+	"heroku": {
+		"goVersion": "go1.10",
+		"install": [
+			"./..."
+		]
+	},
 	"ignore": "test",
 	"package": [
 		{
@@ -19,6 +25,54 @@
 			"comment": "v1.0rc1-110-g4cc2de6",
 			"path": "github.com/gin-gonic/gin/render",
 			"revision": "4cc2de6207f4128624cbdd16be30f64966c67c08"
+		},
+		{
+			"checksumSHA1": "xWaiiaw4MBADTomHMR6v6Uu6O7M=",
+			"path": "github.com/go-redis/redis",
+			"revision": "b533525eff40ecf46da062317cf8337bb929e852",
+			"revisionTime": "2018-03-07T13:04:53Z"
+		},
+		{
+			"checksumSHA1": "6p9Md+f/kIyZi8uazErkdwi2F1c=",
+			"path": "github.com/go-redis/redis/internal",
+			"revision": "b533525eff40ecf46da062317cf8337bb929e852",
+			"revisionTime": "2018-03-07T13:04:53Z"
+		},
+		{
+			"checksumSHA1": "BuzQsdMJMUXm8Zfwtuoz4QUdnZE=",
+			"path": "github.com/go-redis/redis/internal/consistenthash",
+			"revision": "b533525eff40ecf46da062317cf8337bb929e852",
+			"revisionTime": "2018-03-07T13:04:53Z"
+		},
+		{
+			"checksumSHA1": "BOW6qcnIfmJmbW2PfvdXES/SLYM=",
+			"path": "github.com/go-redis/redis/internal/hashtag",
+			"revision": "b533525eff40ecf46da062317cf8337bb929e852",
+			"revisionTime": "2018-03-07T13:04:53Z"
+		},
+		{
+			"checksumSHA1": "83zUabwsQG2lhxFxXVZvqgLYUvU=",
+			"path": "github.com/go-redis/redis/internal/pool",
+			"revision": "b533525eff40ecf46da062317cf8337bb929e852",
+			"revisionTime": "2018-03-07T13:04:53Z"
+		},
+		{
+			"checksumSHA1": "MnHuX4IR5Uj3dkEi6lcnYU8nlnI=",
+			"path": "github.com/go-redis/redis/internal/proto",
+			"revision": "b533525eff40ecf46da062317cf8337bb929e852",
+			"revisionTime": "2018-03-07T13:04:53Z"
+		},
+		{
+			"checksumSHA1": "VPC1wPFocnfREJoA+zLYrH6cgOY=",
+			"path": "github.com/go-redis/redis/internal/singleflight",
+			"revision": "b533525eff40ecf46da062317cf8337bb929e852",
+			"revisionTime": "2018-03-07T13:04:53Z"
+		},
+		{
+			"checksumSHA1": "0+AfibiC+nliAysNEzb7EkcaFh4=",
+			"path": "github.com/go-redis/redis/internal/util",
+			"revision": "b533525eff40ecf46da062317cf8337bb929e852",
+			"revisionTime": "2018-03-07T13:04:53Z"
 		},
 		{
 			"checksumSHA1": "MFkrEy77SoBbEtLd3Ros+NZO35w=",
@@ -59,9 +113,5 @@
 			"revision": "d627af88ac021317a280d320986282a6dc97549a"
 		}
 	],
-	"rootPath": "github.com/denthos/go4a-server",
-	"heroku": {
-		"install": [ "./..." ],
-		"goVersion": "go1.10"
-	}
+	"rootPath": "go4a-server"
 }
